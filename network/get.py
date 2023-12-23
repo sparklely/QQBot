@@ -1,5 +1,5 @@
 import requests
-
+import os
 
 # 所有方法都是返回响应内容,状态码
 # 方法命名为 _返回值
@@ -44,3 +44,20 @@ def get_json(url):
     # 获取JSON
     json = response.json()
     return json, status
+
+
+# 获取图片的方法
+def get_img(url):
+    # 获取响应
+    response = requests.get(url)
+    # 获取状态码
+    status = response.status_code
+    image_data = response.content
+    # 如果原图片存在，则删除
+    if os.path.exists("../image_temp.png"):
+        os.remove("../image_temp.png")
+
+    # 写入图片
+    with open("../image_temp.png", "wb") as file:
+        file.write(image_data)
+    return status

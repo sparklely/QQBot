@@ -1,2 +1,5 @@
 # 群号
 group: 754953378
+ai:
+  img:
+    api: "https://image.ai.crystalneko.online?text=%prompt%"
