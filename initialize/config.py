@@ -9,3 +9,6 @@ address = go_config['servers'][0]['http']['address']  # 监听地址
 with open('config.yml', 'r') as stream:
     config = yaml.safe_load(stream)
 group = config['group']  # 群号
+
+print("监听地址: "+address)
+print("群号: "+ str(group))
