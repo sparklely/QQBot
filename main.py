@@ -1,9 +1,6 @@
-import subprocess
+from message import send
 
-import yaml
+# ------------------------------------------------------初始化开始----------------------------------------------------
+print("喵~开始初始化")
 
-
-print("喵~QQBot开始启动")
-
-subprocess.run(['python', 'initialize/config.py'])  # 注册配置
-
+send.group_msg("机器人启动成功!", False)
