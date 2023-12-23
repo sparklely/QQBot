@@ -15,8 +15,8 @@ def execute(msg_id):
         msg_info = data["message"]
         if msg_info == "woc":
             woc()
-        if msg_info[:len("艹:")] == "艹:":
-            cmd = msg_info[2:]
+        if msg_info[:len("#")] == "#":
+            cmd = msg_info[1:]
             user.execute(cmd)
 
 
