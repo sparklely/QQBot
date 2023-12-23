@@ -5,9 +5,19 @@ import requests
 # 方法命名为 _返回值
 
 # 最基础的get方法，需要传入url
-def get_text(url,heads:dict):
+def heads_get_text(url, heads: dict):
     # 获取响应
-    response = requests.get(url,heads)
+    response = requests.get(url, heads)
+    # 获取状态码
+    status = response.status_code
+    # 获取返回文本
+    text = response.text
+    return text, status
+
+
+def get_text(url):
+    # 获取响应
+    response = requests.get(url)
     # 获取状态码
     status = response.status_code
     # 获取返回文本
