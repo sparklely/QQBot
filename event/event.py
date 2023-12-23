@@ -50,6 +50,3 @@ def start():
 
         # 关闭连接
         client_socket.close()
-
-
-start()
