@@ -15,6 +15,16 @@ def heads_get_text(url, heads: dict):
     return text, status
 
 
+def heads_get_json(url, heads: dict):
+    # 获取响应
+    response = requests.get(url, heads)
+    # 获取状态码
+    status = response.status_code
+    # 获取返回文本
+    text = response.json()
+    return text, status
+
+
 def get_text(url):
     # 获取响应
     response = requests.get(url)
