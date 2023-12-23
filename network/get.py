@@ -1,8 +1,11 @@
 import requests
 
 
+# 所有方法都是返回响应内容,状态码
+# 方法命名为 _返回值
+
 # 最基础的get方法，需要传入url
-def get(url):
+def _text(url):
     # 获取响应
     response = requests.get(url)
     # 获取状态码
@@ -13,7 +16,7 @@ def get(url):
 
 
 # 获取Json的get方法
-def get_json(url):
+def _json(url):
     # 获取响应
     response = requests.get(url)
     # 获取状态码
