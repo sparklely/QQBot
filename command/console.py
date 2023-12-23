@@ -9,3 +9,5 @@ def execute(c_type):
         help.execute(arr_type)
     if arr_type[0] == "send":
         send.execute(arr_type)
+    else:
+        print("无效的命令")

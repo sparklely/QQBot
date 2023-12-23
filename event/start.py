@@ -1,8 +1,10 @@
 import socket
-from initialize.config import go_config
+import yaml
 
 
 def start():
+    with open('../config.yml', 'r', encoding='utf-8', errors='ignore') as stream:
+        go_config = yaml.safe_load(stream)
     # 创建一个 TCP socket 对象
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     port = go_config["servers"][0]["http"]["post"][0]["url"].replace("http://127.0.0.1:", "")
@@ -13,8 +15,7 @@ def start():
 
     # 监听连接
     server_socket.listen(1)
-    print('服务器已启动，等待连接...')
-
+    print("成功注册监听事件")
     while True:
         # 接受客户端连接
         client_socket, client_address = server_socket.accept()
@@ -23,7 +24,6 @@ def start():
         # 接收请求数据
         request_data = client_socket.recv(1024).decode('utf-8')
 
-
         # 处理请求
         response = 'HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\n\r\nHello, World!'
         client_socket.sendall(response.encode('utf-8'))
@@ -31,3 +31,4 @@ def start():
         # 关闭连接
         client_socket.close()
 
+start()
