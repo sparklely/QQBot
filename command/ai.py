@@ -16,3 +16,19 @@ def ai_img(prompt):
     file_uri = "file://" + current_directory + "/../image_temp.png"
     # 发送图片
     send.group_msg("[CQ:image,file="+file_uri+",id=40000]", "false")
+
+
+def ai_chat(text):
+    # 获取API
+    api = config["ai"]["chat"]["api"]
+    # 获取提示词
+    prompt = config["ai"]["chat"]["prompt"]
+    api = api.replace("%text%", text)
+    # 构建链接
+    api = api.replace("%prompt%", prompt)
+    # 从链接获取json
+    response, status = get.get_json(api)
+    # 解析json
+    msg = response["response"]
+    # 发生消息
+    send.group_msg(msg, False)

@@ -7,7 +7,7 @@ from events import msg
 
 def event(data):
     # 定义正则表达式
-    global json_data
+    json_data = None
     pattern = r'{.*}'
 
     # 使用正则表达式提取 JSON 数据部分

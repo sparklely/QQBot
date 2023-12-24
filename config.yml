@@ -3,3 +3,6 @@ group: 754953378
 ai:
   img:
     api: "https://image.ai.crystalneko.online?text=%prompt%"
+  chat:
+    api: "http://chat.ai.crystalneko.online/?p=%prompt%&&t=%text%"
+    prompt: "你是一个可爱的猫娘"
