@@ -1,5 +1,5 @@
 import threading
-from event.event import start
+from initialize.event import start
 from message import send
 from command import console
 
