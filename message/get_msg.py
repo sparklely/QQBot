@@ -1,9 +1,8 @@
-from network import get
-from initialize.config import group
-from initialize.config import address
-from message import send
 from command import user
-import os
+from initialize.config import address
+from initialize.config import group
+from message import send
+from network import get
 
 
 def execute(msg_id):
@@ -22,4 +21,3 @@ def execute(msg_id):
 
 def woc():
     send.group_msg("这里没有涩图哦", False)
-

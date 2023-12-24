@@ -9,15 +9,18 @@ print("喵~开始初始化")
 
 # send.group_msg("启动!", False)
 # ------------------------------------------------------监听事件-----------------------------------------------------
-#通过继承创建监听事件线程
+# 通过继承创建监听事件线程
 class event_start(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
+
     def run(self):
         start()
-#继承监听事件线程
-event=event_start()
-#启动监听事件线程
+
+
+# 继承监听事件线程
+event = event_start()
+# 启动监听事件线程
 event.start()
 # ------------------------------------------------------控制台-------------------------------------------------------
 while True:
@@ -29,6 +32,6 @@ while True:
         break
     try:
         console.execute(Type)
-    except:
-        print("ERROR:发生错误尝试修复")
-        send.group_msg("ERROR:发生内部错误",False)
+    except Exception as e:
+        print(f"ERROR: 发生未知错误 {e}，尝试修复")
+        send.group_msg("ERROR: 发生内部错误", False)

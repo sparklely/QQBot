@@ -1,7 +1,7 @@
 from message import send
 from command import ai
-from command import yy
-from command import mrxw
+from command import yiyan
+
 
 def execute(c_type):
     # 转换为数组
@@ -18,4 +18,4 @@ def execute(c_type):
             if arr_type[1] == "chat":
                 send.group_msg("未开放", False)
     if arr_type[0] == "一言":
-        yy.yy()
+        yiyan.yy()
