@@ -1,6 +1,7 @@
-from message import send
 from command import ai
 from command import yiyan
+from command import help
+from initialize import config
 
 
 def execute(c_type):
@@ -9,14 +10,14 @@ def execute(c_type):
         return
     arr_type = c_type.split()
     if arr_type[0] == "help":
-        send.group_msg("#ai img 提示词   <AI画图>\n" +
-                       "#ai chat 内容   <AI聊天>\n" +
-                       "#一言   <获取一言>", False)
+        help.user_execute(arr_type)
     if arr_type[0] == "ai":
         if len(arr_type) >= 3:
-            if arr_type[1] == "img":
+            if arr_type[1] == "img" and config.ai_img_enable:
                 ai.ai_img(arr_type[2])
-            if arr_type[1] == "chat":
+            if arr_type[1] == "chat" and config.ai_chat_enable:
                 ai.ai_chat(arr_type[2])
-    if arr_type[0] == "一言":
+    if arr_type[0] == "一言" and config.yiyan_enable:
         yiyan.yy()
+
+

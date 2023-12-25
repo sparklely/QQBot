@@ -55,10 +55,10 @@ def get_img(url):
     status = response.status_code
     image_data = response.content
     # 如果原图片存在，则删除
-    if os.path.exists("../image_temp.png"):
-        os.remove("../image_temp.png")
+    if os.path.exists("image_temp.png"):
+        os.remove("image_temp.png")
 
     # 写入图片
-    with open("../image_temp.png", "wb") as file:
+    with open("image_temp.png", "wb") as file:
         file.write(image_data)
     return status

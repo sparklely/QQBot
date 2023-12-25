@@ -1,8 +1,22 @@
 # 群号
 group: 754953378
+command:
+  # 命令前缀
+  prefix: "#"
 ai:
   img:
+    # 是否启用AI画图
+    enable: True
+    # AI画图API %prompt%为提示词
     api: "https://image.ai.crystalneko.online?text=%prompt%"
   chat:
+    # 是否启用AI聊天
+    enable: True
+    # AI聊天API %prompt%为提示词 %text%为输入文本
     api: "http://chat.ai.crystalneko.online/?p=%prompt%&&t=%text%"
     prompt: "你是一个可爱的猫娘"
+yiyan:
+  # 是否启用一言
+  enable: True
+  # 一言API
+  api: "https://api.cenguigui.cn/api/yiyan/"

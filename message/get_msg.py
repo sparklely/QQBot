@@ -1,6 +1,7 @@
 from command import user
 from initialize.config import address
 from initialize.config import group
+from initialize.config import command_prefix
 from message import send
 from network import get
 
@@ -14,8 +15,8 @@ def execute(msg_id):
         msg_info = data["message"]
         if msg_info == "woc":
             woc()
-        if msg_info[:len("#")] == "#":
-            cmd = msg_info[1:]
+        if msg_info[:len(command_prefix)] == command_prefix:
+            cmd = msg_info[len(command_prefix):]  # len(command_prefix)用于获取字符串的长度
             user.execute(cmd)
 
 

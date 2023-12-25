@@ -1,7 +1,7 @@
 import threading
-from initialize.event import start
-from message import send
+
 from command import console
+from initialize.event import start
 
 # ------------------------------------------------------初始化------------------------------------------------------
 print("喵~开始初始化")
@@ -34,4 +34,3 @@ while True:
         console.execute(Type)
     except Exception as e:
         print(f"ERROR: 发生未知错误 {e}，尝试修复")
-        send.group_msg("ERROR: 发生内部错误", False)
