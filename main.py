@@ -7,7 +7,6 @@ from initialize.event import start
 print("喵~开始初始化")
 
 
-# send.group_msg("启动!", False)
 # ------------------------------------------------------监听事件-----------------------------------------------------
 # 通过继承创建监听事件线程
 class event_start(threading.Thread):
@@ -22,6 +21,9 @@ class event_start(threading.Thread):
 event = event_start()
 # 启动监听事件线程
 event.start()
+
+# TODO: 初始化mysql和sqlite (initialize.sql)
+
 # ------------------------------------------------------控制台-------------------------------------------------------
 while True:
     # 获取命令
