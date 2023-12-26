@@ -7,8 +7,11 @@ import os
 
 # 最基础的get方法，需要传入url
 def heads_get_text(url, heads: dict):
-    # 获取响应
-    response = requests.get(url, heads)
+    try:
+        # 获取响应
+        response = requests.get(url, heads)
+    except requests.exceptions:
+        return 'Request api exceptions'
     # 获取状态码
     status = response.status_code
     # 获取返回文本
@@ -17,8 +20,11 @@ def heads_get_text(url, heads: dict):
 
 
 def heads_get_json(url, heads: dict):
-    # 获取响应
-    response = requests.get(url, heads)
+    try:
+        # 获取响应
+        response = requests.get(url, heads)
+    except requests.exceptions:
+        return 'Request api exceptions'
     # 获取状态码
     status = response.status_code
     # 获取返回文本
@@ -27,8 +33,11 @@ def heads_get_json(url, heads: dict):
 
 
 def get_text(url):
-    # 获取响应
-    response = requests.get(url)
+    try:
+        # 获取响应
+        response = requests.get(url)
+    except requests.exceptions:
+        return 'Request api exceptions'
     # 获取状态码
     status = response.status_code
     # 获取返回文本
@@ -38,8 +47,11 @@ def get_text(url):
 
 # 获取Json的get方法
 def get_json(url):
-    # 获取响应
-    response = requests.get(url)
+    try:
+        # 获取响应
+        response = requests.get(url)
+    except requests.exceptions:
+        return 'Request api exceptions'
     # 获取状态码
     status = response.status_code
     # 获取JSON
@@ -49,8 +61,11 @@ def get_json(url):
 
 # 获取图片的方法
 def get_img(url):
-    # 获取响应
-    response = requests.get(url)
+    try:
+        # 获取响应
+        response = requests.get(url)
+    except requests.exceptions:
+        return 'Request api exceptions'
     # 获取状态码
     status = response.status_code
     image_data = response.content

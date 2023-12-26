@@ -11,12 +11,12 @@ class MySQL:
     def connect(self):
         try:
             self.connection = pymysql.connect(
-                host=config['mysql']['host'],
-                port=config['mysql']['port'],
-                database=config['mysql']['database'],
-                user=config['mysql']['username'],
-                password=config['mysql']['password'],
-                charset=config['mysql']['char']
+                host=config['SQL']['mysql']['host'],
+                port=config['SQL']['mysql']['port'],
+                database=config['SQL']['mysql']['database'],
+                user=config['SQL']['mysql']['username'],
+                password=config['SQL']['mysql']['password'],
+                charset=config['SQL']['mysql']['char']
             )
             print('Connected to MySQL')
         except pymysql.Error as e:

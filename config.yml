@@ -20,25 +20,33 @@ yiyan:
   enable: True
   # 一言API
   api: "https://api.cenguigui.cn/api/yiyan/"
-mysql:
-  # 是否启用mysql,不启用则使用sqlite作为数据库
-  enable: False
-  #服务器域名
-  host: 127.0.0.1
-  #服务器端口
-  port: 3306
-  #数据库名
-  database: dbName
-  #用户名
-  username: example
-  #密码
-  password: password
-  #服务器时区
-  time: GMT
-  #sql编码
-  char: UTF-8
-  #是否使用ssl
-  useSSL: True
-sqlite:
-  # sqlite路径（基于main.py所在目录）
-  path: "../bot.db"
+datastorage:
+  #数据存储方式 SQL-数据库 doc-文件
+  mode: SQL
+SQL:
+  mysql:
+    # 是否启用mysql,不启用则使用sqlite作为数据库
+    enable: False
+    #服务器域名
+    host: 127.0.0.1
+    #服务器端口
+    port: 3306
+    #数据库名
+    database: dbName
+    #用户名
+    username: example
+    #密码
+    password: password
+    #服务器时区
+    time: GMT
+    #sql编码
+    char: UTF-8
+    #是否使用ssl
+    useSSL: True
+  sqlite:
+    # sqlite路径（基于main.py所在目录）
+    path: "../bot.db"
+doc:
+  # 选择文件格式 json/yaml
+  mode: json
+  
