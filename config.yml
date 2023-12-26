@@ -49,4 +49,6 @@ SQL:
 doc:
   # 选择文件格式 json/yaml
   mode: json
+  # 数据存储位置
+  path: "../bot-data/"
   
