@@ -23,6 +23,7 @@ event = event_start()
 event.start()
 
 # TODO: 初始化mysql和sqlite (initialize.sql)
+# TODO: 检查data-doc完整性 (initialize.doc)
 
 # ------------------------------------------------------控制台-------------------------------------------------------
 while True:

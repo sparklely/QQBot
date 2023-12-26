@@ -2,9 +2,6 @@ import os
 from initialize.config import config
 
 def Check_file_integrity():
-    #检查文件夹是否存在
-    if not os.path.isdir('data'):
-        os.mkdir("./data")
     file_list=[]#检查文件列表
     for file_ckeck in file_list:
         #检查文件是否存在
