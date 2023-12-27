@@ -44,7 +44,7 @@ SQL:
     #是否使用ssl
     useSSL: True
   sqlite:
-    # sqlite路径（基于main.py所在目录）
+    # sqlite路径
     path: "../bot.db"
 doc:
   # 选择文件格式 json/yaml

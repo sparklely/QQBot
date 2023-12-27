@@ -1,5 +1,4 @@
-from command import help
-from command import send
+from command import help, send
 
 
 def execute(c_type):

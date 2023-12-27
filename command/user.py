@@ -1,6 +1,4 @@
-from command import ai
-from command import yiyan
-from command import help
+from command import help, yiyan, ai
 from initialize import config
 
 
