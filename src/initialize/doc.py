@@ -4,6 +4,9 @@ from initialize.config import config
 
 def Check_file_integrity():
     file_list = []  # 检查文件列表
+    # 检查目录是否存在
+    if not os.path.isdir(config['doc']['path']):
+        os.mkdir(config['doc']['path'])
     for file_check in file_list:
         # 检查文件是否存在
         if not os.path.isfile(file_check):

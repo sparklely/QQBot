@@ -8,6 +8,8 @@ print("喵~开始初始化")
 
 # 初始化sql
 from initialize import sql
+# 初始化doc
+from initialize import doc
 
 
 # ------------------------------------------------------监听事件-----------------------------------------------------
@@ -15,8 +17,7 @@ from initialize import sql
 event = init_event()
 # 启动监听事件线程
 event.start()
-
-# TODO: 检查data-doc完整性 (initialize.doc)
+# TODO: 日志无法输出
 
 # ------------------------------------------------------控制台-------------------------------------------------------
 while True:
@@ -25,7 +26,6 @@ while True:
     # 执行命令
     # TODO: 修復stop命令
     if Type == "stop":
-        # 输入了stop，结束运行
         event.stop()
         break
     try:
