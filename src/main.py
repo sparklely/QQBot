@@ -1,7 +1,7 @@
 import threading
 
 from command import console
-from initialize.event import start
+from initialize.event import init_event
 
 # ------------------------------------------------------初始化------------------------------------------------------
 print("喵~开始初始化")
@@ -11,17 +11,8 @@ from initialize import sql
 
 
 # ------------------------------------------------------监听事件-----------------------------------------------------
-# 通过继承创建监听事件线程
-class event_start(threading.Thread):
-    def __init__(self):
-        threading.Thread.__init__(self)
-
-    def run(self):
-        start()
-
-
 # 继承监听事件线程
-event = event_start()
+event = init_event()
 # 启动监听事件线程
 event.start()
 
@@ -35,6 +26,7 @@ while True:
     # TODO: 修復stop命令
     if Type == "stop":
         # 输入了stop，结束运行
+        event.stop()
         break
     try:
         console.execute(Type)
