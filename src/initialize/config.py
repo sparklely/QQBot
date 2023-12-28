@@ -15,3 +15,8 @@ command_prefix = config['command']['prefix']  # 命令前缀
 yiyan_enable = config['yiyan']['enable']  # 是否启用一言
 if yiyan_enable:
     yiyan_api = config['yiyan']['api']  # 一言API
+random_agc_enable = bool(config['acg']['random-img']['enable'])  # 是否启用随机二次元
+if random_agc_enable:
+    random_agc_api = config['acg']['random-img']['api']
+    random_agc_max = int(config['acg']['random-img']['max'])
+    random_agc_min = int(config['acg']['random-img']['min'])

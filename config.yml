@@ -20,6 +20,12 @@ yiyan:
   enable: True
   # 一言API
   api: "https://api.cenguigui.cn/api/yiyan/"
+acg:
+  random-img:
+    enable: True # 是否启用随机二次元
+    api: "https://cdn.jsdelivr.net/gh/CSneko/randomImage@main/ACG/%num%.jpg"
+    max: 25  # num的最大值
+    min: 0  # num的最小值
 SQL:
   mysql:
     # 是否启用mysql,不启用则使用sqlite作为数据库
