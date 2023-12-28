@@ -33,7 +33,7 @@ class init_event(threading.Thread):
         if post_type == "message" or post_type == "message_sent":
             msg.execute(json_data)
 
-    def event_start(self):
+    def run(self):
         # 创建一个 TCP socket 对象
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         port = go_config["servers"][0]["http"]["post"][0]["url"].replace("http://127.0.0.1:", "")
@@ -52,7 +52,7 @@ class init_event(threading.Thread):
             # 接收请求数据
             request_data = client_socket.recv(1024).decode('utf-8')
 
-            init_event.event(request_data)
+            init_event.event(None,request_data)
             # 处理请求
             response = 'HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\n\r\nHello, World!'
             client_socket.sendall(response.encode('utf-8'))

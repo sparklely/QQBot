@@ -17,14 +17,12 @@ from initialize import doc
 event = init_event()
 # 启动监听事件线程
 event.start()
-# TODO: 日志无法输出
 
 # ------------------------------------------------------控制台-------------------------------------------------------
 while True:
     # 获取命令
     Type = input("> ")
     # 执行命令
-    # TODO: 修復stop命令
     if Type == "stop":
         event.stop()
         break
