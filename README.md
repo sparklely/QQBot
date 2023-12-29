@@ -1,12 +1,12 @@
 # QQBot
-使用 python 制作的基于go-cqhttp的QQ群机器人
+使用 python 制作的基于[go-cqhttp](https://github.com/Mrs4s/go-cqhttp)的QQ群机器人
 # 使用方法
 ## 安装
 切换至你的go-cqhttp所在目录，你应该会看到如下文件/目录：
 ```text
 config.yml  device.json  LICENSE           cqLogs
 download    logs         README.md
-data        go-cqhttp    password.encrypt  session.token
+data        go-cqhttp    
 ```
 然后打开终端/PowerShell,执行以下命令:
 ```bash
@@ -16,7 +16,7 @@ cd QQBot
 注意: 请确保你已经安装了git
 安装工作到此完成
 ## 启动
-直接运行`start.sh`/`start.bat`即可启动（请确保go-cqhttp已经启动）
+直接运行`start.sh`或`start.bat`即可启动（请确保go-cqhttp已经启动
 ## 配置
 #### 配置go-cqhttp
 找到`config.yml`，编辑以下配置(只列出了必要的)：
@@ -71,7 +71,7 @@ yiyan:
   # 是否启用一言
   enable: True
   # 一言API
-  api: "https://api.cenguigui.cn/api/yiyan/"
+  api: "https://api.cenguigui.cn/api/yiyan/"@
 SQL:
   sqlite:
     # sqlite路径
