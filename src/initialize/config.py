@@ -20,3 +20,4 @@ if random_agc_enable:
     random_agc_api = config['acg']['random-img']['api']
     random_agc_max = int(config['acg']['random-img']['max'])
     random_agc_min = int(config['acg']['random-img']['min'])
+    random_agc_cache = bool(config['acg']['random-img']['cache'])

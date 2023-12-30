@@ -8,5 +8,5 @@ from network import get
 def group_msg(msg, escape):
     heads = {"group_id": str(group), "message": msg, "auto_escape": escape}
     get.heads_get_text(address + "/send_group_msg", heads)  # as re:
-        # if re == 'Request api exceptions':
-          #  print('ERROR:无法请求到api,请检查机器人框架已开启')
+    # if re == 'Request api exceptions':
+    #  print('ERROR:无法请求到api,请检查机器人框架已开启')

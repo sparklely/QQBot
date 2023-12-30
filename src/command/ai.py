@@ -10,7 +10,7 @@ def ai_img(prompt):
     api = config["ai"]["img"]["api"]
     api = api.replace("%prompt%", prompt)
     # 获取图片文件
-    get.get_img(api)
+    get.get_img(api, False)
     # 获取绝对路径
     current_directory = os.getcwd()
     file_uri = "file://" + current_directory + "/image_temp.png"

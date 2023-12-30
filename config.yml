@@ -2,7 +2,7 @@
 group: 754953378
 command:
   # 命令前缀
-  prefix: "#"
+  prefix: "艹"
 ai:
   img:
     # 是否启用AI画图
@@ -24,8 +24,9 @@ acg:
   random-img:
     enable: True # 是否启用随机二次元
     api: "https://cdn.jsdelivr.net/gh/CSneko/randomImage@main/ACG/%num%.jpg"
-    max: 25  # num的最大值
+    max: 32  # num的最大值
     min: 0  # num的最小值
+    cache: True # 是否缓存
 SQL:
   mysql:
     # 是否启用mysql,不启用则使用sqlite作为数据库

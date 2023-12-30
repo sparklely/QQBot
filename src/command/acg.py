@@ -12,9 +12,9 @@ def random_img():
     num = random.randint(config.random_agc_min, config.random_agc_max)
     api = api.replace("%num%", str(num))
     # 获取图片文件
-    get.get_img(api)
+    image_name = get.get_img(api, config.random_agc_cache)
     # 获取绝对路径
     current_directory = os.getcwd()
-    file_uri = "file://" + current_directory + "/image_temp.png"
+    file_uri = "file://" + current_directory + "/images/"+image_name
     # 发送图片
     send.group_msg("[CQ:image,file=" + file_uri + ",id=40000]", "false")
