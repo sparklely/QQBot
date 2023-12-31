@@ -5,17 +5,19 @@ import threading
 from initialize.config import go_config
 from events import msg
 
+
 # 通过继承创建监听事件线程
 class init_event(threading.Thread):
-    
+
     def __init__(self):
         threading.Thread.__init__(self)
-        self.status=True
+        self.status = True
 
     def stop(self):
-        self.status=False
+        self.status = False
 
-    def event(self,data):
+    @staticmethod
+    def event(data):
         # 定义正则表达式
         json_data = None
         pattern = r'{.*}'
@@ -29,9 +31,13 @@ class init_event(threading.Thread):
             json_data = json.loads(str(data))
 
         # 解析post_type
-        post_type = json_data["post_type"]
-        if post_type == "message" or post_type == "message_sent":
-            msg.execute(json_data)
+        try:
+            post_type = json_data["post_type"]
+            if post_type == "message" or post_type == "message_sent":
+                msg.execute(json_data)
+        except KeyError:
+            # 如果json_data中没有post_type字段
+            print("JSON数据中缺少post_type字段（可忽略）")
 
     def run(self):
         # 创建一个 TCP socket 对象
@@ -52,7 +58,7 @@ class init_event(threading.Thread):
             # 接收请求数据
             request_data = client_socket.recv(1024).decode('utf-8')
 
-            init_event.event(None,request_data)
+            init_event.event(request_data)
             # 处理请求
             response = 'HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\n\r\nHello, World!'
             client_socket.sendall(response.encode('utf-8'))
@@ -61,5 +67,5 @@ class init_event(threading.Thread):
             client_socket.close()
 
             # 退出循环
-            if self.status==False:
+            if not self.status:
                 break
