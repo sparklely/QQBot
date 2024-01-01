@@ -2,6 +2,7 @@ from message import send
 from network import get
 import os
 from initialize.config import config
+from file import log
 
 
 def ai_img(prompt):
@@ -32,3 +33,4 @@ def ai_chat(text):
     msg = response["response"]
     # 发生消息
     send.group_msg(msg, False)
+    log.info(f'ai聊天 提示词:{prompt} ;消息:{msg}', False)

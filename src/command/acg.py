@@ -1,7 +1,8 @@
-import random
 import os
-from message import send
+import random
+
 from initialize import config
+from message import send
 from network import get
 
 
@@ -18,3 +19,4 @@ def random_img():
     file_uri = "file://" + current_directory + "/images/"+image_name
     # 发送图片
     send.group_msg("[CQ:image,file=" + file_uri + ",id=40000]", "false")
+
