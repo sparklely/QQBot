@@ -65,5 +65,5 @@ def error(text, isprint):
 def debug(text, isprint):
     if log_debug:
         # 添加[debug 时间]前缀,并将字体设置为绿色
-        text = f'\033[92m[error {_time()}]' + text + "\033[0m"
+        text = f'\033[92m[debug {_time()}]' + text + "\033[0m"
         log(text, isprint)
