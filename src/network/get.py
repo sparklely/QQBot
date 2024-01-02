@@ -20,6 +20,7 @@ def heads_get_text(url, heads: dict):
     status = response.status_code
     # 获取返回文本
     text = response.text
+    log.debug(f'向{url}发送了一条get请求', False)
     return text, status
 
 
@@ -33,6 +34,7 @@ def heads_get_json(url, heads: dict):
     status = response.status_code
     # 获取返回文本
     text = response.json()
+    log.debug(f'向{url}发送了一条get请求', False)
     return text, status
 
 
@@ -46,6 +48,7 @@ def get_text(url):
     status = response.status_code
     # 获取返回文本
     text = response.text
+    log.debug(f'向{url}发送了一条get请求', False)
     return text, status
 
 
@@ -59,11 +62,13 @@ def get_json(url):
         # 获取JSON
         try:
             json_data = response.json()
+            log.debug(f'向{url}发送了一条get请求', False)
             return json_data, status
         except json.decoder.JSONDecodeError as e:
             log.warning(e, True)
             return None, status
     except requests.exceptions.RequestException:
+        log.log_error(f'无法向{url}发送get请求', True)
         return 'Request api exceptions', None
 
 

@@ -1,5 +1,6 @@
 from message import send as send_msg
 from file import upload
+from file import log
 
 
 def execute(arr_type):
@@ -15,4 +16,4 @@ def execute(arr_type):
     else:
         # 没有参数，直接发送消息
         send_msg.group_msg(arr_type[1], False)
-    print("\033[92m 发送成功\033[0m")
+    log.info("\033[92m 发送成功\033[0m", True)
