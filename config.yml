@@ -9,7 +9,7 @@ log:
   info: True
   warning: True
   error: True
-  debug: False
+  debug: True
 command:
   # 命令前缀
   prefix: "艹"
