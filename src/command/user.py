@@ -2,16 +2,24 @@ from command import help, yiyan, ai, acg
 from initialize import config
 from initialize.config import command_async
 import asyncio
+import threading
 
 
 def execute(c_type):
     if command_async:
-        # 执行异步任务
-        asyncio.get_event_loop()
-        # 启动异步任务并让其在后台运行
-        asyncio.create_task(async_execute(c_type))
+        thread = threading.Thread(target=start_async(c_type))
+        thread.start()
+
     else:
         _execute(c_type)
+
+
+def start_async(c_type):
+    # 在新线程中创建事件循环并运行异步任务
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(async_execute(c_type))
+    loop.close()
 
 
 async def async_execute(c_type):

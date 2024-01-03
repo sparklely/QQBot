@@ -83,11 +83,12 @@ def get_img(url, cache):
     image_data = response.content
 
     # 解析URL
-    parsed_url = urlparse(url)
+    # parsed_url = urlparse(url)
     # 获取路径部分
-    path = parsed_url.path
+    # path = parsed_url.path
     # 从路径中提取文件名
-    image_name = path.split("/")[-1]
+    # image_name = path.split("/")[-1]
+    image_name = "temp.png"
 
     # 创建目录
     os.makedirs("images", exist_ok=True)
