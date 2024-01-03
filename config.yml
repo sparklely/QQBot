@@ -2,7 +2,7 @@
 group: 785793120
 # 监听
 event:
-  # POST地址，该地址为go-cqhttp配置文件中的servers.0.http.post.%address%.url
+  # POST地址，该地址为go-cqhttp配置文件中的servers.%address%.http.post.0.url
   address: 0
 # 日志设置，True的项会被记录到日志，否则不记录
 log:

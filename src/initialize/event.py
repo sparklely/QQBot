@@ -43,7 +43,7 @@ class init_event(threading.Thread):
     def run(self):
         # 创建一个 TCP socket 对象
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        port = go_config["servers"][0]["http"]["post"][int(config['event']['address'])]["url"].replace("http://127.0.0.1:", "")
+        port = go_config["servers"][int(config['event']['address'])]["http"]["post"][0]["url"].replace("http://127.0.0.1:", "")
         port = port.replace("/", "")
         # 绑定 IP 地址和端口号
         server_address = ('127.0.0.1', int(port))
