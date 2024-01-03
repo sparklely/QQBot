@@ -20,7 +20,9 @@ group = config['group']  # 群号
 ai_chat_enable = bool(config['ai']['chat']['enable'])  # 是否启用了AI聊天
 ai_img_enable = bool(config['ai']['img']['enable'])  # 是否启用了AI画图
 
+# -----------------------------------------------------------命令------------------------------------------------
 command_prefix = config['command']['prefix']  # 命令前缀
+command_async = bool(config['command']['async'])  # 是否启用异步任务
 
 # ----------------------------------------------------一言--------------------------------------------------------
 yiyan_enable = config['yiyan']['enable']  # 是否启用一言

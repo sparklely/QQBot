@@ -1,7 +1,7 @@
 from command import user
 from initialize.config import address
-from initialize.config import group
 from initialize.config import command_prefix
+from initialize.config import group
 from message import send
 from network import get
 
