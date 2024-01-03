@@ -7,7 +7,7 @@ import threading
 
 def execute(c_type):
     if command_async:
-        thread = threading.Thread(target=start_async(c_type))
+        thread = threading.Thread(target=start_async, args=(c_type,))
         thread.start()
 
     else:
@@ -25,7 +25,7 @@ def start_async(c_type):
 async def async_execute(c_type):
     # 通过异步线程执行
     _execute(c_type)
-    
+
 
 def _execute(c_type):
     # 转换为数组

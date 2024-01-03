@@ -5,6 +5,7 @@ import threading
 from initialize.config import go_config
 from initialize.config import config
 from events import msg
+from file import log
 
 
 # 通过继承创建监听事件线程
@@ -38,7 +39,7 @@ class init_event(threading.Thread):
                 msg.execute(json_data)
         except KeyError:
             # 如果json_data中没有post_type字段
-            print("JSON数据中缺少post_type字段（可忽略）")
+            log.warning("JSON数据中缺少post_type字段（可忽略）", True)
 
     def run(self):
         # 创建一个 TCP socket 对象
@@ -51,7 +52,7 @@ class init_event(threading.Thread):
 
         # 监听连接
         server_socket.listen(1)
-        print("成功注册监听事件")
+        log.info("成功注册监听事件", True)
         while True:
             # 接受客户端连接
             client_socket, client_address = server_socket.accept()

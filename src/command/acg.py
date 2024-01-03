@@ -14,6 +14,10 @@ def random_img():
     api = api.replace("%num%", str(num))
     # 获取图片文件
     image_name = get.get_img(api, config.random_agc_cache)
+    if image_name is None:
+        # 获取图片出错
+        send.group_msg("获取图片出错", True)
+        return
     # 获取绝对路径
     current_directory = os.getcwd()
     file_uri = "file://" + current_directory + "/images/"+image_name
