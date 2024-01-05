@@ -25,3 +25,9 @@ def data_json(url, data):
     # 获取返回文本
     text = response.text
     return text, status
+
+# 返回json的post请求,使用json传输数据,支持头
+def json_headers(url,headers,data):
+    headers['Content-Type']="application/json; charset=UTF-8"
+    response =requests.post(url,headers=headers,json=data)
+    return response
