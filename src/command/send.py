@@ -2,7 +2,7 @@ from message import send as send_msg
 from file import upload
 
 
-def execute(arr_type):
+def execute(arr_type,msg_data):
     if arr_type[1] == "msg":
         # 发送消息
         send_msg.group_msg(arr_type[2], False)

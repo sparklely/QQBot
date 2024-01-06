@@ -17,7 +17,7 @@ def execute(msg_id):
             woc()
         if msg_info[:len(command_prefix)] == command_prefix:
             cmd = msg_info[len(command_prefix):]  # len(command_prefix)用于获取字符串的长度
-            user.execute(cmd)
+            user.execute(cmd,data)
 
 
 def woc():
