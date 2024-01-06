@@ -9,4 +9,4 @@ from file import log
 def group_msg(msg, escape):
     heads = {"group_id": str(group), "message": msg, "auto_escape": escape}
     get.heads_get_text(address + "/send_group_msg", heads)
-    log.info('机器人发送了一条消息', False)
+    log.debug(f'发送消息{msg}', False)

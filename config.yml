@@ -1,8 +1,20 @@
 # 群号
 group: 785793120
+# 监听
+event:
+  # POST地址，该地址为go-cqhttp配置文件中的servers.%address%.http.post.0.url
+  address: 0
+# 日志设置，True的项会被记录到日志，否则不记录
+log:
+  info: True
+  warning: True
+  error: True
+  debug: True
 command:
   # 命令前缀
   prefix: "艹"
+  # 是否启用异步线程，启用后可避免主线程堵塞导致无法接收消息（暂不稳定）
+  async: True
 ai:
   img:
     # 是否启用AI画图
@@ -27,6 +39,19 @@ acg:
     max: 32  # num的最大值
     min: 0  # num的最小值
     cache: True # 是否缓存
+# smtp(邮件发送)部分的设置
+smtp:
+  Enable: False
+  auth: True
+  starttls: True
+  #smtp服务器
+  host: smtp.example.com
+  #smtp端口
+  port: 587
+  #邮箱地址
+  username: smtpuser@example.com
+  #邮箱密码（授权码）
+  password: password
 SQL:
   mysql:
     # 是否启用mysql,不启用则使用sqlite作为数据库

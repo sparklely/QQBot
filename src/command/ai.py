@@ -11,10 +11,14 @@ def ai_img(prompt):
     api = config["ai"]["img"]["api"]
     api = api.replace("%prompt%", prompt)
     # 获取图片文件
-    get.get_img(api, False)
+    image_name = get.get_img(api, False)
+    if image_name is None:
+        # 获取图片出错
+        send.group_msg("获取图片出错", True)
+        return
     # 获取绝对路径
     current_directory = os.getcwd()
-    file_uri = "file://" + current_directory + "/image_temp.png"
+    file_uri = f'file://{current_directory}/images/{image_name}'
     # 发送图片
     send.group_msg("[CQ:image,file=" + file_uri + ",id=40000]", "false")
 
@@ -31,6 +35,6 @@ def ai_chat(text):
     response, status = get.get_json(api)
     # 解析json
     msg = response["response"]
-    # 发生消息
+    # 发送消息
     send.group_msg(msg, False)
     log.info(f'ai聊天 提示词:{prompt} ;消息:{msg}', False)

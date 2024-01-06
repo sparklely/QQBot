@@ -3,7 +3,9 @@ import json
 import re
 import threading
 from initialize.config import go_config
+from initialize.config import config
 from events import msg
+from file import log
 
 
 # 通过继承创建监听事件线程
@@ -37,12 +39,12 @@ class init_event(threading.Thread):
                 msg.execute(json_data)
         except KeyError:
             # 如果json_data中没有post_type字段
-            print("JSON数据中缺少post_type字段（可忽略）")
+            log.warning("JSON数据中缺少post_type字段（可忽略）", True)
 
     def run(self):
         # 创建一个 TCP socket 对象
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        port = go_config["servers"][0]["http"]["post"][0]["url"].replace("http://127.0.0.1:", "")
+        port = go_config["servers"][int(config['event']['address'])]["http"]["post"][0]["url"].replace("http://127.0.0.1:", "")
         port = port.replace("/", "")
         # 绑定 IP 地址和端口号
         server_address = ('127.0.0.1', int(port))
@@ -50,7 +52,7 @@ class init_event(threading.Thread):
 
         # 监听连接
         server_socket.listen(1)
-        print("成功注册监听事件")
+        log.info("成功注册监听事件", True)
         while True:
             # 接受客户端连接
             client_socket, client_address = server_socket.accept()

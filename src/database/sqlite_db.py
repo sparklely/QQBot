@@ -1,11 +1,12 @@
 import sqlite3
+from file import log
 
 
 class SQLite:
     def __init__(self, database_name):
         self.database_name = database_name
         self.connection = sqlite3.connect(self.database_name)
-        print('Connected to SQLite')
+        log.info('成功连接到sqlite数据库', True)
 
     def execute_query(self, query, params=None):
         """
