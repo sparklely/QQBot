@@ -1,0 +1,28 @@
+{
+    "cwd": "",
+    "ie": "gbk",
+    "oe": "gbk",
+    "tag": [],
+    "fileCode": "gbk",
+    "processType": "docker",
+    "terminalOption": {
+      "haveColor": true
+    },
+    "eventTask": {
+      "autoStart": false,
+      "autoRestart": false,
+      "ignore": false
+    },
+    "docker": {
+      "networkMode": "bridge",
+      "cpuUsage": "100",
+      "maxSpace": null,
+      "io": null,
+      "network": null
+    },
+    "pingConfig": {
+      "ip": "",
+      "port": 25565,
+      "type": 1
+    }
+  }

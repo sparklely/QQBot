@@ -12,7 +12,7 @@ log:
   debug: True
 command:
   # 命令前缀
-  prefix: "艹"
+  prefix: "#"
   # 是否启用异步线程，启用后可避免主线程堵塞导致无法接收消息（暂不稳定）
   async: True
 ai:
@@ -41,7 +41,7 @@ acg:
     cache: True # 是否缓存
 # smtp(邮件发送)部分的设置
 smtp:
-  Enable: False
+  enable: False
   auth: True
   starttls: True
   #smtp服务器
@@ -79,5 +79,39 @@ doc:
   # 选择文件格式 json/yaml
   mode: json
   # 数据存储位置
-  path: "../bot-data/"
-  
+  path: "./bot-data/"
+MCSM:
+  enable: True
+  # 面板地址
+  url: ""
+  apikey: ""
+  # 自动实例分配
+  AAI:
+    # 是否启用
+    enable: True
+    # 分配类型
+    type: "minecraft/java"
+    # 到期时间
+    endTime: ""
+    # 启动指令
+    startCommand: ""
+    # 关闭指令
+    stopCommand: ""
+    # 守护进程id
+    remote_uuid: ""
+    # 容器设置
+    docker:
+      # 镜像
+      image: ""
+      # 分配内存(MB)
+      memory: 1024
+      # cpu核心分配
+      cpusetCpus: "1,2,3,4"
+    # 端口设置
+    port:
+      # 此设置无效 配置项位于 bot目录/res/MCSM/port.yaml
+      port: -1
+      # 端口类型
+      type:
+        - tcp
+        - udp

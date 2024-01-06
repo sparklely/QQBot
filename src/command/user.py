@@ -1,33 +1,33 @@
-from command import help, yiyan, ai, acg
+from command import help, yiyan, ai, acg,MCSM
 from initialize import config
 from initialize.config import command_async
 import asyncio
 import threading
 
 
-def execute(c_type):
+def execute(c_type,msg_data):
     if command_async:
-        thread = threading.Thread(target=start_async, args=(c_type,))
+        thread = threading.Thread(target=start_async, args=(c_type,msg_data,))
         thread.start()
 
     else:
         _execute(c_type)
 
 
-def start_async(c_type):
+def start_async(c_type,msg_data):
     # 在新线程中创建事件循环并运行异步任务
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-    loop.run_until_complete(async_execute(c_type))
+    loop.run_until_complete(async_execute(c_type,msg_data))
     loop.close()
 
 
-async def async_execute(c_type):
+async def async_execute(c_type,msg_data):
     # 通过异步线程执行
-    _execute(c_type)
+    _execute(c_type,msg_data)
 
 
-def _execute(c_type):
+def _execute(c_type,msg_data):
     # 转换为数组
     if c_type == "":
         return
@@ -44,3 +44,6 @@ def _execute(c_type):
         yiyan.yy()
     if arr_type[0] == "二次元" and config.random_agc_enable:
         acg.random_img()
+    if arr_type[0]=="注册":
+        pMCSM=MCSM()
+        pMCSM.reg(msg_data)
