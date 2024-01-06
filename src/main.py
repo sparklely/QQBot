@@ -1,5 +1,4 @@
-import readline
-import threading
+import os
 from file import log
 from command import console
 from initialize.event import init_event
@@ -20,14 +19,16 @@ event = init_event()
 event.start()
 
 # ------------------------------------------------------控制台-------------------------------------------------------
-# 将左箭头键与"left"字符串绑定
-readline.parse_and_bind("\033[D: left")
-# 将右箭头键与"right"字符串绑定
-readline.parse_and_bind("\033[C: right")
-# 将上箭头键与"up"字符串绑定
-readline.parse_and_bind("\033[A: up")
-# 将下箭头键与"down"字符串绑定
-readline.parse_and_bind("\033[B: down")
+if os.name=='posix':
+    import readline
+    # 将左箭头键与"left"字符串绑定
+    readline.parse_and_bind("\033[D: left")
+    # 将右箭头键与"right"字符串绑定
+    readline.parse_and_bind("\033[C: right")
+    # 将上箭头键与"up"字符串绑定
+    readline.parse_and_bind("\033[A: up")
+    # 将下箭头键与"down"字符串绑定
+    readline.parse_and_bind("\033[B: down")
 while True:
     # 获取命令
     Type = input("> ")
