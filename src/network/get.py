@@ -103,21 +103,21 @@ def get_img(url, cache):
     image_name = path.split("/")[-1] if path.split("/")[-1] else "default.png"
 
     # 创建目录
-    os.makedirs("images", exist_ok=True)
+    os.makedirs("temp/images", exist_ok=True)
     # 如果启用了缓存
     if cache:
-        if image_name == "default.png" and os.path.exists("images/" + image_name):
-            os.remove("images/" + image_name)
-        if not os.path.exists("images/" + image_name):
+        if image_name == "default.png" and os.path.exists("temp/images/" + image_name):
+            os.remove("temp/images/" + image_name)
+        if not os.path.exists("temp/images/" + image_name):
             # 写入图片
-            with open("images/" + image_name, "wb") as file:
+            with open("temp/images/" + image_name, "wb") as file:
                 file.write(image_data)
     else:
         # 删除原来的图片
-        if os.path.exists("images/" + image_name):
-            os.remove("images/" + image_name)
+        if os.path.exists("temp/images/" + image_name):
+            os.remove("temp/images/" + image_name)
         # 写入图片
-        with open("images/" + image_name, "wb") as file:
+        with open("temp/images/" + image_name, "wb") as file:
             file.write(image_data)
     log.info(f'从 {url} 获取了一张图片', False)
     return image_name
