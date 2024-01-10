@@ -18,7 +18,7 @@ def ai_img(prompt):
         return
     # 获取绝对路径
     current_directory = os.getcwd()
-    file_uri = f'file://{current_directory}/images/{image_name}'
+    file_uri = f'file://{current_directory}/temp/images/{image_name}'
     # 发送图片
     send.group_msg("[CQ:image,file=" + file_uri + ",id=40000]", "false")
 

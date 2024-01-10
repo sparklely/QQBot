@@ -11,7 +11,6 @@ from initialize import sql
 # 初始化doc
 from initialize import doc
 
-
 # ------------------------------------------------------监听事件-----------------------------------------------------
 # 继承监听事件线程
 event = init_event()
@@ -19,8 +18,9 @@ event = init_event()
 event.start()
 
 # ------------------------------------------------------控制台-------------------------------------------------------
-if os.name=='posix':
+if os.name == 'posix':
     import readline
+
     # 将左箭头键与"left"字符串绑定
     readline.parse_and_bind("\033[D: left")
     # 将右箭头键与"right"字符串绑定
