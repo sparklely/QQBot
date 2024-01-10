@@ -45,5 +45,5 @@ def _execute(c_type,msg_data):
     if arr_type[0] == "二次元" and config.random_agc_enable:
         acg.random_img()
     if arr_type[0]=="注册":
-        pMCSM=MCSM()
+        pMCSM=MCSM.MCSM
         pMCSM.reg(msg_data)
