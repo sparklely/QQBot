@@ -8,7 +8,6 @@ import time
 
 class MCSM:
     def __init__(self):
-        self.qMCSM=MCSM()
         self.qq=""
         self.headers={'X-Requested-With':"XMLHttpRequest",'Content-Type':"application/json; charset=UTF-8"}
    # 注册
@@ -22,8 +21,6 @@ class MCSM:
         try:
             re=post.json_headers(config["MCSM"]["url"]+"/api/auth?apikey="+config["MCSM"]["apikey"],self.headers,data)
             if re.json()['data']==True:
-                if config["MCSM"]["AAI"]["enable"]:
-                    self.qMCSM.AAI()
                 send.group_msg(f"[CQ:at,qq={self.qq}]注册成功\n-------------------------------------\n默认密码:{self.qq}@Ab123456\n请及时进入面板更改密码\n若忘记密码请让管理员帮忙重置",False)
             elif re.json()['data']=='用户名已经被占用':
                 send.group_msg(f"[CQ:at,qq={self.qq}]禁止重复注册",False)
@@ -56,8 +53,7 @@ class MCSM:
         data['docker']['cpusetCpus']=config["MCSM"]["AAI"]["docker"]["cpusetCpus"]
         return post.json_headers(config["MCSM"]["url"]+"/api/instance?apikey="+config["MCSM"]["apikey"]+"&remote_uuid="+config["MCSM"]["AAI"]["remote_uuid"],self.headers,data).json()
     # 自动分配实例
-    def AAI(self):
-        CIData=self.qMCSM.CI()
+    def AAI(self,CIData):
         # 查询用户uuid
         uuid=get.get_json(config["MCSM"]["url"]+"/api/auth/search?apikey="+config["MCSM"]["apikey"]+"&userName="+self.qq+"&page=1&page_size=10000")['data']['data'][0]['uuid']
         # 分配实例数据处理
@@ -80,3 +76,10 @@ class MCSM:
         open_doc=open("./res/MCSM/port.yaml","w")
         open_doc.write(yaml.dump({"port":int(port)+1}))
         open_doc.close()
+
+def run(msg_data):
+    pMCSM=MCSM()
+    pMCSM.reg(msg_data)
+    if config["MCSM"]["AAI"]["enable"]:
+        Q=pMCSM.CI()
+        pMCSM.AAI(Q)
