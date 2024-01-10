@@ -11,6 +11,9 @@ from initialize import sql
 # 初始化doc
 from initialize import doc
 
+# 测试的模块
+# from initialize import test
+# test.start()
 # ------------------------------------------------------监听事件-----------------------------------------------------
 # 继承监听事件线程
 event = init_event()

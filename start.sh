@@ -3,4 +3,4 @@
 path="src/main.py"
 
 # 运行python
-python ${path}
+python3 ${path}

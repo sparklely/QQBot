@@ -3,3 +3,9 @@ class sql:
     use_mysql = False
     mysql = None
     sqlite = None
+
+
+class commands:
+    commands = {}
+    user_help = ""
+    console_help = ""

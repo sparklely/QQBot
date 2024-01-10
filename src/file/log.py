@@ -34,14 +34,14 @@ def log(text, isprint):
     # 打开文件并将光标定位到文件末尾
     with open(_file, 'a') as f:
         # 写入日志信息
-        f.write(text + '\n')
+        f.write(str(text) + '\n')
 
 
 # 用于输出info的函数
 def info(text, isprint):
     if log_info:
         # 添加[info 时间]前缀
-        text = f'[info {_time()}]' + text
+        text = f'[info {_time()}]' + str(text)
         log(text, isprint)
 
 
@@ -49,7 +49,7 @@ def info(text, isprint):
 def warning(text, isprint):
     if log_warning:
         # 添加[warning 时间]前缀,并将字体设置为黄色
-        text = f'\033[33m[warning {_time()}]' + text + "\033[0m"
+        text = f'\033[33m[warning {_time()}]' + str(text) + "\033[0m"
         log(text, isprint)
 
 
@@ -57,7 +57,7 @@ def warning(text, isprint):
 def error(text, isprint):
     if log_error:
         # 添加[error 时间]前缀,并将字体设置为黄色
-        text = f'\033[31m[error {_time()}]' + text + "\033[0m"
+        text = f'\033[31m[error {_time()}]' + str(text) + "\033[0m"
         log(text, isprint)
 
 
@@ -65,5 +65,5 @@ def error(text, isprint):
 def debug(text, isprint):
     if log_debug:
         # 添加[debug 时间]前缀,并将字体设置为绿色
-        text = f'\033[92m[debug {_time()}]' + text + "\033[0m"
+        text = f'\033[92m[debug {_time()}]' + str(text) + "\033[0m"
         log(text, isprint)
