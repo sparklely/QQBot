@@ -43,8 +43,6 @@ def _execute(c_type, msg_data):
                 ai.ai_chat(arr_type[2])
     if arr_type[0] == "一言" and config.yiyan_enable:
         yiyan.yy()
-    if arr_type[0] == "二次元" and config.random_agc_enable:
-        acg.random_img()
     if arr_type[0] == "注册":
         MCSM.run(msg_data)
     # 如果输入的命令存在于字典中且cate为user
