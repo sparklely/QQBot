@@ -35,8 +35,6 @@ def _execute(c_type, msg_data):
     arr_type = c_type.split()
     if arr_type[0] == "help":
         help.user_execute(arr_type)
-    if arr_type[0] == "注册":
-        MCSM.run(msg_data)
     # 如果输入的命令存在于字典中且cate为user
     if arr_type[0] in cmd.commands and cmd.commands[arr_type[0]]['cate'] == 'user':
         # 获取命令的类
