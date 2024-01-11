@@ -3,6 +3,7 @@ from command import acg
 from command import ai
 from command import yiyan
 from initialize import config
+from command import send
 
 
 def start():
@@ -21,3 +22,7 @@ def start():
         command.reg('一言', yiyan.yy_class, 'user')
         command.reg_help('一言', '获取一言', 'user')
 
+    command.reg_help('stop', "关闭程序", 'console')
+    command.reg('send', send.send_class, 'console')
+    command.reg_help('send msg <消息内容>', '发送消息', 'console')
+    command.reg_help('send file <文件路径> <文件名称> <保存目录>', '发送文件', 'console')
