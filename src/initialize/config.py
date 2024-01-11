@@ -13,12 +13,17 @@ address = address.replace("0.0.0.0", "127.0.0.1")  # 把0.0.0.0替换成127.0.0.
 
 # ---------------------------------------------------------配置------------------------------------------------------
 
-
 group = config['group']  # 群号
 
 # -----------------------------------------------------------AI---------------------------------------------------
+
 ai_chat_enable = bool(config['ai']['chat']['enable'])  # 是否启用了AI聊天
+if ai_chat_enable:
+    ai_chat_api = config["ai"]["chat"]["api"]
+    ai_chat_prompt = config["ai"]["chat"]["prompt"]
 ai_img_enable = bool(config['ai']['img']['enable'])  # 是否启用了AI画图
+if ai_img_enable:
+    ai_img_api = config["ai"]["img"]["api"]
 
 # -----------------------------------------------------------命令------------------------------------------------
 command_prefix = config['command']['prefix']  # 命令前缀

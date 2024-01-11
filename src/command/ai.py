@@ -1,7 +1,7 @@
 from message import send
 from network import get
 import os
-from initialize.config import config
+from initialize import config
 from file import log
 
 
@@ -21,7 +21,7 @@ class ai_class:
     def ai_img(prompt):
         send.group_msg("开始画图...", False)
         # 获取API
-        api = config["ai"]["img"]["api"]
+        api = config.ai_img_api
         api = api.replace("%prompt%", prompt)
         # 获取图片文件
         image_name = get.get_img(api, False)
@@ -38,16 +38,23 @@ class ai_class:
     @staticmethod
     def ai_chat(text):
         # 获取API
-        api = config["ai"]["chat"]["api"]
+        api = config.ai_chat_api
         # 获取提示词
-        prompt = config["ai"]["chat"]["prompt"]
+        prompt = config.ai_chat_prompt
         api = api.replace("%text%", text)
         # 构建链接
         api = api.replace("%prompt%", prompt)
         # 从链接获取json
         response, status = get.get_json(api)
+        if response is None:
+            send.group_msg("获取数据出错", True)
+            return
         # 解析json
-        msg = response["response"]
-        # 发送消息
-        send.group_msg(msg, False)
-        log.info(f'ai聊天 提示词:{prompt} ;消息:{msg}', False)
+        try:
+            msg = response["response"]
+            # 发送消息
+            send.group_msg(msg, False)
+            log.info(f'ai聊天 提示词:{prompt} ;消息:{msg}', False)
+        except KeyError as e:
+            log.error("解析json错误:" + str(e), False)
+            send.group_msg("遇到了一点问题,正在尝试修复", True)

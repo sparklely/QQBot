@@ -66,7 +66,7 @@ def get_json(url):
         try:
             json_data = response.json()
             log.debug(f'向{url}发送了一条get请求', False)
-            return json_data
+            return json_data, status
         except json.decoder.JSONDecodeError as e:
             log.warning(str(e), True)
             return None, status
