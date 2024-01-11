@@ -1,5 +1,5 @@
 from API import command
-from command import send,acg,ai,yiyan,MCSM
+from command import send,acg,ai,yiyan
 from initialize import config
 
 
@@ -18,10 +18,8 @@ def start():
     if config.yiyan_enable:
         command.reg('一言', yiyan.yy_class, 'user')
         command.reg_help('一言', '获取一言', 'user')
-    
-    if config.MCSM_enable:
-        command.reg(config.MCSM_commands,MCSM.MCSM_run,'user')
-        command.reg_help('MCSM注册', '注册MCSM', 'user')
+
+
 
     command.reg_help('stop', "关闭程序", 'console')
     command.reg('send', send.send_class, 'console')
