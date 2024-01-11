@@ -44,7 +44,7 @@ if random_agc_enable:
 # ---------------------------------------------------MCSM-------------------------------------------------------
 MCSM_enable = config['MCSM']['enable'] 
 if MCSM_enable:
-    MCSM_commands = config['MCSM']['commands']
+    MCSM_commands = config['MCSM']['command']
 # --------------------------------------------------日志----------------------------------------------------
 log_info = bool(config['log']['info'])
 log_warning = bool(config['log']['warning'])

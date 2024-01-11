@@ -9,3 +9,7 @@ class commands:
     commands = {}
     user_help = ""
     console_help = ""
+
+
+class plugs:
+    plugs = {}

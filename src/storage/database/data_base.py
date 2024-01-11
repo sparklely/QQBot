@@ -1,8 +1,8 @@
 from initialize import g_vars
 
-u_m = vars.sql.use_mysql
-my = vars.sql.mysql
-lite = vars.sql.sqlite
+u_m = g_vars.sql.use_mysql
+my = g_vars.sql.mysql
+lite = g_vars.sql.sqlite
 
 
 def save_data(table_name, column_name, data):

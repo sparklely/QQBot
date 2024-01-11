@@ -1,20 +1,18 @@
-import os
 from file import log
 from command import console
 from initialize.event import init_event
 from initialize import init_commands
+import os
+from initialize import sql
+from initialize import init_plugins
+
 
 # ------------------------------------------------------初始化------------------------------------------------------
 log.info("喵~开始初始化", True)
-
-# 初始化sql
-from initialize import sql
-# 初始化doc
-from initialize import doc
-
-# 测试的模块
-# from initialize import test
-# test.start()
+# 初始化数据库
+sql.start()
+# 加载插件
+init_plugins.start()
 # ------------------------------------------------------监听事件-----------------------------------------------------
 # 注册命令
 init_commands.start()
