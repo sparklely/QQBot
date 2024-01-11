@@ -15,4 +15,4 @@ def json_write(url, data):
 
 def yaml_read(url):
     with open(url, 'r', encoding='utf-8', errors='ignore') as open_doc:
-        return yaml.load(open_doc.read())
+        return yaml.safe_load(open_doc.read())

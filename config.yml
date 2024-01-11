@@ -89,10 +89,12 @@ MCSM:
   AAI:
     # 是否启用
     enable: True
+    # 分配名称(后面自动加:自动分配端口)
+    name: ""
     # 分配类型
     type: "minecraft/java"
     # 到期时间
-    endTime: ""
+    endTime: 0
     # 启动指令
     startCommand: ""
     # 关闭指令
