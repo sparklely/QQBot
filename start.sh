@@ -1,18 +1,23 @@
 #!/bin/bash
 
 path="src/main.py"
-# 尝试执行 py 命令
-if hash py 2>/dev/null; then
-    py ${path}
-# 如果不存在 py 命令，尝试执行 python 命令
-elif hash python 2>/dev/null; then
-    python ${path}
-# 如果不存在 python 命令，尝试执行 python3 命令
-elif hash python3 2>/dev/null; then
-    python3 ${path}
-# 如果都不存在，输出提示信息并退出脚本
-else
-    echo "找不到 Python 解释器"
+
+PYTHON_CMD=$(which python || which python3 || which py)
+
+# 检查是否找到可执行的 Python 命令
+if [ -z "$PYTHON_CMD" ]; then
+    echo "未找到可执行的 Python 命令"
+    read -rp "按下 Enter 退出..."
     exit 1
 fi
+
+# 检查并安装 pymysql 库
+if ! $PYTHON_CMD -c "import pymysql" &>/dev/null; then
+    echo "未找到 pymysql，开始安装..."
+    $PYTHON_CMD -m pip install pymysql || { echo "安装 pymysql 失败";  }
+fi
+
+
+# 运行启动命令
+$PYTHON_CMD ${path}
 
