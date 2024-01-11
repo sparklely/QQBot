@@ -14,7 +14,7 @@ def start():
             plugin_name = module.plugin_name
             plugin_version = module.plugin_version
             plugin_authors = module.plugin_authors
-            log.info(f'正在加载插件{plugin_name} V {plugin_version} by {plugin_authors}', True)
+            log.info(f'正在加载插件{plugin_name} V{plugin_version} by {plugin_authors}', True)
             # 写入全局变量
             plugs.plugs.update({plugin_name: module})
             # 启动插件

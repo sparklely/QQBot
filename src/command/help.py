@@ -6,5 +6,5 @@ def execute(arr_type):
     print(commands.console_help)
 
 
-def user_execute(arr_type,msg_data):
+def user_execute(arr_type):
     send.group_msg(commands.user_help, False)

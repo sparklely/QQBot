@@ -1,5 +1,4 @@
-from command import help, yiyan, ai, acg, MCSM
-from initialize import config
+from command import help, MCSM
 from initialize.config import command_async
 from initialize.g_vars import commands as cmd
 import asyncio
@@ -40,4 +39,4 @@ def _execute(c_type, msg_data):
         # 获取命令的类
         cmd_class = cmd.commands[arr_type[0]]['class']()
         # 执行命令
-        cmd_class.user_execute(arr_type,msg_data)
+        cmd_class.user_execute(arr_type, msg_data)
