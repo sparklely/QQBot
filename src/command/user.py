@@ -35,14 +35,6 @@ def _execute(c_type, msg_data):
     arr_type = c_type.split()
     if arr_type[0] == "help":
         help.user_execute(arr_type)
-    if arr_type[0] == "ai":
-        if len(arr_type) >= 3:
-            if arr_type[1] == "img" and config.ai_img_enable:
-                ai.ai_img(arr_type[2])
-            if arr_type[1] == "chat" and config.ai_chat_enable:
-                ai.ai_chat(arr_type[2])
-    if arr_type[0] == "一言" and config.yiyan_enable:
-        yiyan.yy()
     if arr_type[0] == "注册":
         MCSM.run(msg_data)
     # 如果输入的命令存在于字典中且cate为user

@@ -2,6 +2,7 @@ import os
 from file import log
 from command import console
 from initialize.event import init_event
+from initialize import init_commands
 
 # ------------------------------------------------------初始化------------------------------------------------------
 log.info("喵~开始初始化", True)
@@ -15,6 +16,8 @@ from initialize import doc
 # from initialize import test
 # test.start()
 # ------------------------------------------------------监听事件-----------------------------------------------------
+# 注册命令
+init_commands.start()
 # 继承监听事件线程
 event = init_event()
 # 启动监听事件线程
