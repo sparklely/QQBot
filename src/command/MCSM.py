@@ -42,7 +42,7 @@ class MCSM:
         ticks = time.time()
         # instance数据处理
         data = doc.json_read("./res/MCSM/init_instance.json")
-        data['nickname'] = config["MCSM"]["url"] + ":" + port
+        data['nickname'] = config["MCSM"]["AAI"]["name"] + ":" + port
         data['createDatetime'] = ticks
         data['lastDatetime'] = ticks
         data_docker_ports = []
@@ -60,7 +60,7 @@ class MCSM:
     # 自动分配实例
     def AAI(self, CIData):
         # 查询用户uuid
-        uuid=get.get_json(config["MCSM"]["url"]+"/api/auth/search?apikey="+config["MCSM"]["apikey"]+"&userName="+str(self.qq)+"&role=&page=1&page_size=10000")['data']['data'][0]['uuid']
+        uuid=get.get_json(config["MCSM"]["url"]+"/api/auth/search?apikey="+config["MCSM"]["apikey"]+"&userName="+str(self.qq)+"&role=&page=1&page_size=10000")[0]['data']['data'][0]['uuid']
         # 分配实例数据处理
         data = {
             "uuid": uuid,
