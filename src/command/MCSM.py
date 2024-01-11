@@ -23,7 +23,7 @@ class MCSM:
         try:
             re=post.json_headers(config["MCSM"]["url"]+"/api/auth?apikey="+config["MCSM"]["apikey"],self.headers,data)
             if re.json()['data']==True:
-                send.group_msg(f"[CQ:at,qq={self.qq}]注册成功\n-------------------------------------\n默认密码:{self.qq}@Ab123456\n请及时进入面板更改密码\n若忘记密码请让管理员帮忙重置",False)
+                send.group_msg(f"[CQ:at,qq={self.qq}]注册成功\n-------------------------------------\n默认密码:{self.qq}Ab123456\n请及时进入面板更改密码\n若忘记密码请让管理员帮忙重置",False)
                 return True
             elif re.json()['data']=='用户名已经被占用':
                 send.group_msg(f"[CQ:at,qq={self.qq}]禁止重复注册",False)
