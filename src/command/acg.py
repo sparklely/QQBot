@@ -11,7 +11,7 @@ class acg_class:
     permission = "command.acg"
 
     @staticmethod
-    def user_execute(c_type,msg_data):
+    def user_execute(c_type, msg_data):
         # 获取API
         api = config.random_agc_api
         # 生成随机数

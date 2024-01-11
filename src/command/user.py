@@ -1,4 +1,4 @@
-from command import help, MCSM
+from command import help
 from initialize.config import command_async
 from initialize.g_vars import commands as cmd
 import asyncio
