@@ -41,7 +41,10 @@ if random_agc_enable:
     random_agc_max = int(config['acg']['random-img']['max'])
     random_agc_min = int(config['acg']['random-img']['min'])
     random_agc_cache = bool(config['acg']['random-img']['cache'])
-
+# ---------------------------------------------------MCSM-------------------------------------------------------
+MCSM_enable = config['MCSM']['enable'] 
+if MCSM_enable:
+    MCSM_commands = config['MCSM']['commands']
 # --------------------------------------------------日志----------------------------------------------------
 log_info = bool(config['log']['info'])
 log_warning = bool(config['log']['warning'])

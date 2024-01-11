@@ -82,9 +82,13 @@ class MCSM:
         open_doc.write(yaml.dump({"port":int(port)+1}))
         open_doc.close()
 
+class MCSM_run:
+    plugin = 'bot'
+    permission = "command.MCSM"
 
-def run(msg_data):
-    pMCSM=MCSM()
-    if pMCSM.reg(msg_data) and config["MCSM"]["AAI"]["enable"]:
-        Q=pMCSM.CI()
-        pMCSM.AAI(Q)
+    @staticmethod
+    def user_execute(a,msg_data):
+        pMCSM=MCSM()
+        if pMCSM.reg(msg_data) and config["MCSM"]["AAI"]["enable"]:
+            Q=pMCSM.CI()
+            pMCSM.AAI(Q)

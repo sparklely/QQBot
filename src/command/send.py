@@ -7,7 +7,7 @@ class send_class:
     plugin = "bot"
 
     @staticmethod
-    def console_execute(arr_type):
+    def console_execute(arr_type,msg_data):
         if arr_type[1] == "msg":
             # 发送消息
             send_msg.group_msg(arr_type[2], False)

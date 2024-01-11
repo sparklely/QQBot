@@ -8,7 +8,7 @@ class yy_class:
     permission = "command.yy"
 
     @staticmethod
-    def user_execute(args):
+    def user_execute(args,msg_data):
         yy_class.yy()
 
     @staticmethod

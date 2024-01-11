@@ -10,7 +10,7 @@ class ai_class:
     permission = "command.acg"
 
     @staticmethod
-    def user_execute(arr_type):
+    def user_execute(arr_type,msg_data):
         if len(arr_type) >= 3:
             if arr_type[1] == "img" and config.ai_img_enable:
                 ai_class.ai_img(arr_type[2])

@@ -82,6 +82,8 @@ doc:
   path: "./bot-data/"
 MCSM:
   enable: True
+  # 指令
+  commands: "MCSM注册"
   # 面板地址
   url: ""
   apikey: ""
