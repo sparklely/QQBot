@@ -19,3 +19,11 @@ def start():
             plugs.plugs.update({plugin_name: module})
             # 启动插件
             module.on_enable()
+
+class init_plugins:
+
+    def __init__(self):
+        self.group=0
+
+    def initsj(self,data):
+        self.group=data["group_id"]

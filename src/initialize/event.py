@@ -26,20 +26,25 @@ class init_event(threading.Thread):
 
         # 使用正则表达式提取 JSON 数据部分
         match = re.search(pattern, data)
-
-        if match:
-            # 解析 JSON 字符串
-            data = match.group()
-            json_data = json.loads(str(data))
-
-        # 解析post_type
+        
         try:
+            if match:
+                # 解析 JSON 字符串
+                data = match.group()
+                json_data = json.loads(str(data))
+            # 解析post_type
             post_type = json_data["post_type"]
             if post_type == "message" or post_type == "message_sent":
                 msg.execute(json_data)
         except KeyError:
             # 如果json_data中没有post_type字段
-            log.warning("JSON数据中缺少post_type字段（可忽略）", True)
+            log.warning("JSON数据中缺少post_type字段(可忽略)", True)
+        except TypeError:
+            # 如果json_data为空
+            log.warning("JSON数据为空(可忽略)", True)
+        except json.decoder.JSONDecodeError:
+            # 如果json_data未终止字符串错误
+            log.warning("JSON未终止字符串错误(可忽略)", True)
 
     def run(self):
         # 创建一个 TCP socket 对象
@@ -57,8 +62,12 @@ class init_event(threading.Thread):
             # 接受客户端连接
             client_socket, client_address = server_socket.accept()
 
-            # 接收请求数据
-            request_data = client_socket.recv(1024).decode('utf-8')
+            try:
+                # 接收请求数据
+                request_data = client_socket.recv(1024).decode('utf-8')
+            except UnicodeDecodeError:
+                # 如果JSON数据无法读取
+                log.warning("JSON数据无法读取(可忽略)", True)
 
             init_event.event(request_data)
             # 处理请求

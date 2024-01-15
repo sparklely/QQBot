@@ -11,7 +11,7 @@ def execute(msg_id):
     heads = {"message_id": msg_id}
     data = get.heads_get_json(address + "/get_msg", heads)[0]["data"]
     # 判断是否为特定群消息
-    if data["group"] and data["group_id"] == group:
+    if data["group"] and (data["group_id"] in group):
         msg_info = data["message"]
         if msg_info == "woc":
             woc()

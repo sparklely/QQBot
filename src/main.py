@@ -34,8 +34,12 @@ if os.name == 'posix':
     # 将下箭头键与"down"字符串绑定
     readline.parse_and_bind("\033[B: down")
 while True:
-    # 获取命令
-    Type = input("> ")
+    try:
+        # 获取命令
+        Type = input("> ")
+    except KeyboardInterrupt:
+        # 无输入
+        log.warning("无输入指令(可忽略)", True)
     # 执行命令
     if Type == "stop":
         event.stop()

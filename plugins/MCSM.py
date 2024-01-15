@@ -1,4 +1,5 @@
 from initialize.config import config
+from initialize.init_plugins import init_plugins
 from message import send
 from file import doc, log
 from network import post, get, put
@@ -16,6 +17,7 @@ def on_enable():
     command.reg_help('MCSM注册', '注册MCSM', 'user')
 class MCSM:
     def __init__(self):
+        self.group=0
         self.qq = ""
         self.headers = {'X-Requested-With': "XMLHttpRequest", 'Content-Type': "application/json; charset=UTF-8"}
 
@@ -30,18 +32,18 @@ class MCSM:
         try:
             re=post.json_headers(config["MCSM"]["url"]+"/api/auth?apikey="+config["MCSM"]["apikey"],self.headers,data)
             if re.json()['data']==True:
-                send.group_msg(f"[CQ:at,qq={self.qq}]注册成功\n-------------------------------------\n默认密码:{self.qq}Ab123456\n请及时进入面板更改密码\n若忘记密码请让管理员帮忙重置",False)
+                send.group_msg(f"[CQ:at,qq={self.qq}]注册成功\n-------------------------------------\n默认密码:{self.qq}Ab123456\n请及时进入面板更改密码\n若忘记密码请让管理员帮忙重置",self.group,False)
                 return True
             elif re.json()['data']=='用户名已经被占用':
-                send.group_msg(f"[CQ:at,qq={self.qq}]禁止重复注册",False)
+                send.group_msg(f"[CQ:at,qq={self.qq}]禁止重复注册",self.group,False)
                 return False
             else:
                 print(re.json())
-                send.group_msg(f"[CQ:at,qq={self.qq}]未知错误,请联系管理员查看后台报错",False)
+                send.group_msg(f"[CQ:at,qq={self.qq}]未知错误,请联系管理员查看后台报错",self.group,False)
                 return False
         except Exception as e:
             log.error("无法请求MCSM注册api:" + str(e), True)
-            send.group_msg(f"[CQ:at,qq={self.qq}]无法请求到api", False)
+            send.group_msg(f"[CQ:at,qq={self.qq}]无法请求到api",self.group, False)
     # 创建实例
     def CI(self):
         MCSM_port = doc.yaml_read("./res/MCSM/port.yaml")
@@ -89,13 +91,14 @@ class MCSM:
         open_doc.write(yaml.dump({"port":int(port)+1}))
         open_doc.close()
 
-class MCSM_run:
+class MCSM_run(init_plugins):
     plugin = 'bot'
     permission = "command.MCSM"
 
-    @staticmethod
-    def user_execute(a,msg_data):
+
+    def user_execute(self,a,msg_data):
         pMCSM=MCSM()
+        pMCSM.group=self.group
         if pMCSM.reg(msg_data) and config["MCSM"]["AAI"]["enable"]:
             Q=pMCSM.CI()
             pMCSM.AAI(Q)

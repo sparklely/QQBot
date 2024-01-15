@@ -1,5 +1,7 @@
 # 群号
-group: 785793120
+group: 
+  - 754953378
+  - 531469769
 # 监听
 event:
   # POST地址，该地址为go-cqhttp配置文件中的servers.%address%.http.post.0.url
@@ -100,7 +102,7 @@ MCSM:
     # 启动指令
     startCommand: ""
     # 关闭指令
-    stopCommand: ""
+    stopCommand: "stop"
     # 守护进程id
     remote_uuid: ""
     # 容器设置
@@ -108,9 +110,9 @@ MCSM:
       # 镜像
       image: ""
       # 分配内存(MB)
-      memory: 1024
+      memory: 4096
       # cpu核心分配
-      cpusetCpus: "1,2,3,4"
+      cpusetCpus: ""
     # 端口设置
     port:
       # 此设置无效 配置项位于 bot目录/res/MCSM/port.yaml
@@ -118,4 +120,3 @@ MCSM:
       # 端口类型
       type:
         - tcp
-        - udp
