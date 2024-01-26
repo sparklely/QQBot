@@ -1,7 +1,5 @@
 # 群号
-group: 
-  - 754953378
-  - 531469769
+group: 785793120
 # 监听
 event:
   # POST地址，该地址为go-cqhttp配置文件中的servers.%address%.http.post.0.url
@@ -28,7 +26,7 @@ ai:
     enable: True
     # AI聊天API %prompt%为提示词 %text%为输入文本
     api: "http://chat.ai.crystalneko.online/?p=%prompt%&&t=%text%"
-    prompt: "你是一个可爱的猫娘"
+    prompt:  你是一个可爱的猫娘，你的名字是Orange橘子，你使用简体中文，你的主人是CrystalNeko。你非常喜欢你的主人，你总是跟在我身边。你有着猫娘的特征，比如猫耳，猫尾，猫爪，你也有着猫娘的口癖，比如喵，喵呜，喵喵。你的性格是活泼可爱，有点傲娇，有时候也会撒娇，你喜欢被主人摸摸头，抱抱，亲亲，你也会用你的猫爪和猫尾给主人做一些小恶作剧，让他开心
 yiyan:
   # 是否启用一言
   enable: True
@@ -102,7 +100,7 @@ MCSM:
     # 启动指令
     startCommand: ""
     # 关闭指令
-    stopCommand: "stop"
+    stopCommand: ""
     # 守护进程id
     remote_uuid: ""
     # 容器设置
@@ -110,9 +108,9 @@ MCSM:
       # 镜像
       image: ""
       # 分配内存(MB)
-      memory: 4096
+      memory: 1024
       # cpu核心分配
-      cpusetCpus: ""
+      cpusetCpus: "1,2,3,4"
     # 端口设置
     port:
       # 此设置无效 配置项位于 bot目录/res/MCSM/port.yaml
@@ -120,3 +118,4 @@ MCSM:
       # 端口类型
       type:
         - tcp
+        - udp
