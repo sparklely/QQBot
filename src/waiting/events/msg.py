@@ -1,4 +1,4 @@
-from message import get_msg
+from waiting.message import get_msg
 
 
 def execute(data):

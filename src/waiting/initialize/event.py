@@ -2,9 +2,9 @@ import socket
 import json
 import re
 import threading
-from initialize.config import go_config
-from initialize.config import config
-from events import msg
+from waiting.initialize.config import go_config
+from waiting.initialize.config import config
+from waiting.events import msg
 from file import log
 
 

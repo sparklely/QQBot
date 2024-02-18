@@ -1,5 +1,5 @@
 import os
-from initialize.config import config
+from waiting.initialize.config import config
 
 
 def Check_file_integrity():

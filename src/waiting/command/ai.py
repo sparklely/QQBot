@@ -1,7 +1,7 @@
-from message import send
+from waiting.message import send
 from network import get
 import os
-from initialize import config
+from waiting.initialize import config
 from file import log
 
 

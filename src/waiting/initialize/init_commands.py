@@ -1,6 +1,6 @@
-from API import command
-from command import send,acg,ai,yiyan
-from initialize import config
+from API.register import command
+from waiting.command import send, ai, yiyan, acg
+from waiting.initialize import config
 
 
 def start():

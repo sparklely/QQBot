@@ -1,7 +1,11 @@
-plugin_name = "test"
-plugin_version = "1.0.0"
-plugin_authors = ["CrystalNeko"]
+from API.register.plugin import plug
+from file import log
 
 
-def on_enable():
-    print("测试插件成功启动!")
+class plug_main(plug):
+    name = "plugin_name"
+    version = "1.0.0"
+
+    @staticmethod
+    def on_enable():
+        log.info("成功启动测试插件", True)

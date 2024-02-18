@@ -1,6 +1,6 @@
 from network import get
-from initialize.config import group
-from initialize.config import address
+from waiting.initialize.config import group
+from waiting.initialize.config import address
 
 
 # 上传文件到群

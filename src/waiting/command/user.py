@@ -1,6 +1,6 @@
-from command import help
-from initialize.config import command_async
-from initialize.g_vars import commands as cmd
+from waiting.command import help
+from waiting.initialize.config import command_async
+from waiting.initialize.g_vars import commands as cmd
 import asyncio
 import threading
 

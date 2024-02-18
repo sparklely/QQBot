@@ -1,4 +1,4 @@
-from initialize.config import config
+from waiting.initialize.config import config
 import pymysql
 from time import sleep
 

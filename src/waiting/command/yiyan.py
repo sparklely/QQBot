@@ -1,6 +1,6 @@
 import requests
-from message import send
-from initialize.config import yiyan_api
+from waiting.message import send
+from waiting.initialize.config import yiyan_api
 
 
 class yy_class:

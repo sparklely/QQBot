@@ -1,8 +1,8 @@
 import os
 import random
 
-from initialize import config
-from message import send
+from waiting.initialize import config
+from waiting.message import send
 from network import get
 
 

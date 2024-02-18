@@ -1,9 +1,10 @@
-from initialize.config import config
-from initialize.init_plugins import init_plugins
-from message import send
-from file import doc, log
+from waiting.initialize.config import config
+from waiting.initialize.init_plugins import init_plugins
+from waiting.message import send
+from file import log
+from waiting.file import doc
 from network import post, get, put
-from API import command
+from API.register import command
 import yaml
 import time
 
@@ -32,18 +33,18 @@ class MCSM:
         try:
             re=post.json_headers(config["MCSM"]["url"]+"/api/auth?apikey="+config["MCSM"]["apikey"],self.headers,data)
             if re.json()['data']==True:
-                send.group_msg(f"[CQ:at,qq={self.qq}]注册成功\n-------------------------------------\n默认密码:{self.qq}Ab123456\n请及时进入面板更改密码\n若忘记密码请让管理员帮忙重置",self.group,False)
+                send.group_msg(f"[CQ:at,qq={self.qq}]注册成功\n-------------------------------------\n默认密码:{self.qq}Ab123456\n请及时进入面板更改密码\n若忘记密码请让管理员帮忙重置", self.group, False)
                 return True
             elif re.json()['data']=='用户名已经被占用':
-                send.group_msg(f"[CQ:at,qq={self.qq}]禁止重复注册",self.group,False)
+                send.group_msg(f"[CQ:at,qq={self.qq}]禁止重复注册", self.group, False)
                 return False
             else:
                 print(re.json())
-                send.group_msg(f"[CQ:at,qq={self.qq}]未知错误,请联系管理员查看后台报错",self.group,False)
+                send.group_msg(f"[CQ:at,qq={self.qq}]未知错误,请联系管理员查看后台报错", self.group, False)
                 return False
         except Exception as e:
             log.error("无法请求MCSM注册api:" + str(e), True)
-            send.group_msg(f"[CQ:at,qq={self.qq}]无法请求到api",self.group, False)
+            send.group_msg(f"[CQ:at,qq={self.qq}]无法请求到api", self.group, False)
     # 创建实例
     def CI(self):
         MCSM_port = doc.yaml_read("./res/MCSM/port.yaml")
@@ -85,7 +86,7 @@ class MCSM:
             }
         }
         put.headers_json(config["MCSM"]["url"]+"/api/auth/?apikey="+config["MCSM"]["apikey"],self.headers,data).json()
-        MCSM_port=doc.yaml_read("./res/MCSM/port.yaml")
+        MCSM_port= doc.yaml_read("./res/MCSM/port.yaml")
         port=str(MCSM_port['port'])
         open_doc=open("./res/MCSM/port.yaml","w")
         open_doc.write(yaml.dump({"port":int(port)+1}))

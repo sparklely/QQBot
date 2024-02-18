@@ -1,5 +1,5 @@
-from API import command
-from message import send
+from API.register import command
+from waiting.message import send
 
 
 # 这个类仅用于测试

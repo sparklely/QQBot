@@ -1,5 +1,5 @@
-from command import help, send
-from initialize.g_vars import commands as cmd
+from waiting.command import help
+from waiting.initialize.g_vars import commands as cmd
 
 
 def execute(c_type):

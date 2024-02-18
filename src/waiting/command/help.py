@@ -1,5 +1,5 @@
-from message import send
-from initialize.g_vars import commands
+from waiting.message import send
+from waiting.initialize.g_vars import commands
 
 
 def execute(arr_type):

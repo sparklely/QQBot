@@ -1,6 +1,6 @@
 import pkgutil
 from file import log
-from initialize.g_vars import plugs
+from waiting.initialize.g_vars import plugs
 
 
 def start():

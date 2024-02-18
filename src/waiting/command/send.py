@@ -1,5 +1,5 @@
-from message import send as send_msg
-from file import upload
+from waiting.message import send as send_msg
+from waiting.file import upload
 from file import log
 
 

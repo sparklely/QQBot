@@ -1,4 +1,4 @@
-from initialize.config import address
+from waiting.initialize.config import address
 from network import get
 from file import log
 

@@ -1,6 +1,6 @@
-from initialize.config import config
-from initialize import g_vars
-from storage.database import sqlite_db
+from waiting.initialize.config import config
+from waiting.initialize import g_vars
+from waiting.storage.database import sqlite_db
 import os
 from file import log
 

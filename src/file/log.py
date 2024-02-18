@@ -1,9 +1,9 @@
 from datetime import datetime
 import os
-from initialize.config import log_info
-from initialize.config import log_warning
-from initialize.config import log_error
-from initialize.config import log_debug
+from waiting.initialize.config import log_info
+from waiting.initialize.config import log_warning
+from waiting.initialize.config import log_error
+from waiting.initialize.config import log_debug
 
 
 # 用于获取时间的函数

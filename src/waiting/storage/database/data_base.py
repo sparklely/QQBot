@@ -1,4 +1,4 @@
-from initialize import g_vars
+from waiting.initialize import g_vars
 
 u_m = g_vars.sql.use_mysql
 my = g_vars.sql.mysql
